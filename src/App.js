@@ -1,18 +1,29 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import TextBox from './component/textbox';
+import MessageBox from './component/messagebox';
 import './App.css';
 
 class App extends Component {
+
+    constructor(){
+        super();
+        this.handleData = this.handleData.bind(this);
+        this.state = {
+            messageParent: ''
+        }
+    }
+
+    handleData(data) {
+        this.setState({
+            messageParent: data
+        });
+    }
   render() {
+        console.log(this.state.messageParent);
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <MessageBox/>
+        <TextBox handlerFromParant={this.handleData}/>
       </div>
     );
   }
