@@ -7,23 +7,43 @@ class App extends Component {
 
     constructor(){
         super();
-        this.handleData = this.handleData.bind(this);
+        this.handleNewUserMessage = this.handleNewUserMessage.bind(this);
         this.state = {
-            messageParent: ''
+            messages: [
+                {
+                    type: 1,
+                    text: "Hello! How are you doing today?"
+                }
+            ]
         }
     }
 
-    handleData(data) {
+    handleNewUserMessage(text){
         this.setState({
-            messageParent: data
+            messages: this.state.messages.concat([{
+                text: text[0].text,
+                type: 0,
+            }])
         });
     }
-  render() {
-        console.log(this.state.messageParent);
+
+
+    handleNewBotMessage(text){
+        this.setState({
+            messages: this.state.messages.concat([{
+                text: text,
+                type: 1,
+            }])
+        });
+    }
+
+    render() {
     return (
       <div className="App">
-        <MessageBox/>
-        <TextBox handlerFromParant={this.handleData}/>
+          <div className="messageBox">
+            <MessageBox messageContent={this.state.messages}/>
+          </div>
+          <TextBox handlerFromParant={this.handleNewUserMessage}/>
       </div>
     );
   }

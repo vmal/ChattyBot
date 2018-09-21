@@ -1,36 +1,56 @@
 import React, { Component } from 'react';
-import {Button, FormControl, FormGroup, InputGroup} from 'react-bootstrap';
+import {Button, FormControl, FormGroup, Glyphicon, InputGroup} from 'react-bootstrap';
 
 class Textbox extends Component{
 
     constructor(){
         super();
         this.state = {
-            message: ''
+            messages: [
+                {
+                    type: 0,
+                    text: ""
+                }
+            ]
         };
     }
 
     handleChange(e){
-        this.setState({message: e.target.value})
+        this.setState({
+            messages: [
+                {
+                    type: 0,
+                    text: e.target.value
+                }
+            ]})
     };
 
     handleClick(evt){
         evt.preventDefault();
-        console.log('handleClick: ',this.state.message);
-        this.props.handlerFromParant(this.state.message);
+        this.props.handlerFromParant(this.state.messages);
         this.setState({
-            message: ''
+            messages: [
+                {
+                    type: 0,
+                    text: ""
+                }
+            ]
         });
     };
 
     keyPress(e){
         if(e.keyCode === 13){
             e.preventDefault();
-            console.log('handleClick: ',this.state.message);
-            this.props.handlerFromParant(this.state.message);
+            this.props.handlerFromParant(this.state.messages);
             this.setState({
-                message: ''
+                messages: [
+                    {
+                        type: 0,
+                        text: ""
+                    }
+                ]
             });
+
         }
     }
     render(){
@@ -39,10 +59,10 @@ class Textbox extends Component{
                 <div className="inputBox">
                     <FormGroup>
                         <InputGroup>
-                            <FormControl value={this.state.message} onChange={this.handleChange.bind(this)}
+                            <FormControl value={this.state.messages[0].text} onChange={this.handleChange.bind(this)}
                                          onKeyDown={this.keyPress.bind(this)} type="text" placeholder="write something...."/>
                             <InputGroup.Button>
-                                <Button onClick={this.handleClick.bind(this)} bsStyle="primary">Send Message</Button>
+                                <Button onClick={this.handleClick.bind(this)} bsStyle="primary"><Glyphicon glyph="glyphicon glyphicon-send"> Send</Glyphicon></Button>
                             </InputGroup.Button>
                         </InputGroup>
                     </FormGroup>
