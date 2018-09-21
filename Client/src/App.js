@@ -26,16 +26,28 @@ class App extends Component {
                 type: 0,
             }])
         });
+        let temp = {
+            msg: text[0].text
+        };
+        console.log('temp: ',temp);
+        axios.post('http://localhost:5000/getReply',{temp})
+            .then(res =>{
+                console.log('res.data: ',res.data);
+                this.setState({
+                    messages: this.state.messages.concat([{
+                        text: res.data,
+                        type: 1,
+                    }])
+                });
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
     }
 
 
     handleNewBotMessage(text){
-        this.setState({
-            messages: this.state.messages.concat([{
-                text: text,
-                type: 1,
-            }])
-        });
+
     }
 
     render() {
