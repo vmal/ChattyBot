@@ -1,4 +1,4 @@
-#ChattyBot - [A Chat Bot Messenger]
+<h1>ChattyBot - [A Chat Bot Messenger]</h1>
 Chat anything with a bot on a IOS 10 texting like interface. This application has a standalone React JS client and standalone REST Python Flask server. 
 <br>
 
