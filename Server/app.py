@@ -1,15 +1,20 @@
-from flask import Flask, render_template, request
-from flask_cors import CORS
+from flask import Flask, request
 from chatterbot import ChatBot
 from chatterbot.trainers import ChatterBotCorpusTrainer
 
 app = Flask(__name__)
-CORS(app)
 
-english_bot = ChatBot("Chatterbot", storage_adapter="chatterbot.storage.SQLStorageAdapter")
+english_bot = ChatBot("English Bot", 
+                     storage_adapter = "chatterbot.storage.MongoDatabaseAdapter",
+                     database = "chatterbot",
+                     database_uri = "mongodb://vmal:admin123@ds127490.mlab.com:27490/chatterbot")
 
 english_bot.set_trainer(ChatterBotCorpusTrainer)
 english_bot.train("chatterbot.corpus.english")
+
+@app.route("/")
+def home():
+    return "Hello!!!!"
 
 @app.route("/getReply", methods = ['POST'])
 def get_response():

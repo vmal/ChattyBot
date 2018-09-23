@@ -1,1 +1,6 @@
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+#ChattyBot - [A Chat Bot Messenger]
+Chat anything with a bot on a IOS 10 texting like interface.
+
+Developed by <strong> Vaibhav Malhotra </strong>
+<br/>VAIBHAV MALHOTRA 
+email: vbvmalhotra@gmail.com <br/>
