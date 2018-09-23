@@ -23,7 +23,7 @@ The following steps will let you download and run the project locally:
 7. You can now successfully chat with a bot using the REACT JS app!
 
  <h2>Screenshot</h2>
-![](./screenshot.png)
+<img src="screenshot.png" width="410px" height="500px"/>
 
  <h2>Live Demo</h2>
 If you dont want to go through the hassle of running it locally, you can also access and play around with the app <a href='https://chatterbot-client.herokuapp.com/'>here</a>
