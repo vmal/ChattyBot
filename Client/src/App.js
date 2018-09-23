@@ -30,7 +30,7 @@ class App extends Component {
             msg: text[0].text
         };
         console.log('temp: ',temp);
-        axios.post('https://shielded-eyrie-11868.herokuapp.com/getReply',{temp})
+        axios.post('http://localhost:5000/getReply',{temp})
             .then(res =>{
                 console.log('res.data: ',res.data);
                 this.setState({
