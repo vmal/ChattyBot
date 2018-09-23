@@ -45,11 +45,6 @@ class App extends Component {
             });
     }
 
-
-    handleNewBotMessage(text){
-
-    }
-
     render() {
     return (
       <div className="App">
